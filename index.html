@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#073b2b">
+  <meta name="description" content="Rony Physics Solution — HSC ও SSC পদার্থবিজ্ঞানের অধ্যায়ভিত্তিক প্রস্তুতি, MCQ এবং এডমিশন গাইডলাইন।">
+  <title>Rony Physics Solution | পদার্থবিজ্ঞান শেখার নতুন অভিজ্ঞতা</title>
+
+  <!-- Bengali web font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --green: #073b2b;
+      --green-2: #0b513b;
+      --green-3: #12684a;
+      --yellow: #ffd447;
+      --yellow-soft: #fff4c7;
+      --ink: #17251f;
+      --muted: #68766f;
+      --surface: #ffffff;
+      --page: #f5f8f5;
+      --line: #e4ebe5;
+      --shadow: 0 18px 45px rgba(7, 59, 43, .09);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      color: var(--ink);
+      background: var(--page);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(228,235,229,.85);
+    }
+    .navbar { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--green); font-weight: 700; font-size: 1.22rem; white-space: nowrap; }
+    .brand-mark {
+      width: 43px; height: 43px; display: grid; place-items: center;
+      border-radius: 14px; color: var(--yellow); background: var(--green);
+      box-shadow: 0 8px 18px rgba(7,59,43,.18);
+    }
+    .brand-mark svg { width: 27px; height: 27px; }
+    .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .nav-links a { font-weight: 600; color: #45564d; transition: color .2s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--green-3); }
+    .login-btn, .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      border: 0; border-radius: 12px; padding: 12px 21px; font-weight: 700;
+      cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .login-btn { color: var(--green); background: var(--yellow); box-shadow: 0 7px 18px rgba(255,212,71,.25); }
+    .login-btn:hover, .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(7,59,43,.15); }
+    .menu-toggle { display: none; width: 43px; height: 43px; border: 1px solid var(--line); border-radius: 12px; background: white; color: var(--green); font-size: 1.15rem; cursor: pointer; }
+
+    /* Hero */
+    .hero {
+      position: relative; overflow: hidden; color: white;
+      background: radial-gradient(circle at 85% 15%, rgba(255,212,71,.17), transparent 25%),
+                  radial-gradient(circle at 10% 100%, rgba(33,140,94,.28), transparent 32%),
+                  linear-gradient(125deg, #052d22 0%, #074331 58%, #0b513b 100%);
+      padding: 92px 0 100px;
+    }
+    .hero::before, .hero::after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.09); border-radius: 50%; pointer-events: none; }
+    .hero::before { width: 480px; height: 480px; right: -120px; top: -210px; }
+    .hero::after { width: 340px; height: 340px; right: -50px; top: -140px; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 55px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 99px; color: #ffe58a; background: rgba(255,255,255,.07); font-size: .92rem; font-weight: 600; }
+    .hero h1 { margin: 22px 0 14px; max-width: 720px; font-size: clamp(2.25rem, 5vw, 3.85rem); line-height: 1.2; letter-spacing: -.8px; }
+    .hero h1 span { color: var(--yellow); }
+    .hero-tagline { color: #d7e8df; font-size: 1.15rem; font-weight: 600; margin-bottom: 9px; }
+    .hero-copy { max-width: 650px; color: #d3e2da; font-size: 1.05rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .btn-yellow { color: var(--green); background: var(--yellow); }
+    .btn-outline { color: white; border: 1px solid rgba(255,255,255,.55); background: transparent; }
+    .hero-note { margin-top: 25px; display: flex; align-items: center; gap: 10px; color: #c2d7cc; font-size: .92rem; }
+    .hero-note i { color: var(--yellow); }
+    .physics-art { min-height: 340px; display: grid; place-items: center; position: relative; }
+    .orbit-card {
+      width: min(100%, 390px); aspect-ratio: 1 / .9; border-radius: 35px;
+      border: 1px solid rgba(255,255,255,.2); background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.035));
+      box-shadow: 0 30px 70px rgba(0,0,0,.18); display: grid; place-items: center; position: relative;
+      backdrop-filter: blur(8px);
+    }
+    .atom { width: 245px; height: 245px; position: relative; }
+    .atom .nucleus { position: absolute; width: 24px; height: 24px; left: 50%; top: 50%; transform: translate(-50%,-50%); border-radius: 50%; background: var(--yellow); box-shadow: 0 0 28px rgba(255,212,71,.85); }
+    .atom .orbit { position: absolute; inset: 34px 0; border: 2px solid rgba(255,224,128,.85); border-radius: 50%; }
+    .atom .orbit.one { transform: rotate(0deg); }
+    .atom .orbit.two { transform: rotate(60deg); }
+    .atom .orbit.three { transform: rotate(-60deg); }
+    .atom .electron { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: white; box-shadow: 0 0 16px white; }
+    .atom .e1 { top: 39px; left: 50%; }
+    .atom .e2 { right: 29px; bottom: 48px; background: var(--yellow); }
+    .art-label { position: absolute; right: 20px; bottom: 22px; padding: 9px 14px; border-radius: 12px; background: var(--yellow); color: var(--green); font-weight: 700; }
+
+    /* Shared sections */
+    section { padding: 82px 0; }
+    .section-heading { max-width: 680px; margin: 0 auto 42px; text-align: center; }
+    .section-kicker { color: var(--green-3); font-size: .9rem; font-weight: 700; letter-spacing: .4px; }
+    .section-heading h2 { color: var(--green); font-size: clamp(1.8rem, 3.5vw, 2.55rem); line-height: 1.25; margin: 8px 0 12px; }
+    .section-heading p { color: var(--muted); }
+
+    /* Courses */
+    .courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .course-card {
+      padding: 27px; border: 1px solid var(--line); border-radius: var(--radius);
+      background: var(--surface); box-shadow: 0 8px 25px rgba(7,59,43,.035);
+      display: flex; flex-direction: column; min-height: 250px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .course-card:hover { transform: translateY(-7px); box-shadow: var(--shadow); border-color: #c6d9cc; }
+    .course-icon { width: 53px; height: 53px; display: grid; place-items: center; border-radius: 16px; background: var(--yellow-soft); color: var(--green); font-size: 1.35rem; }
+    .course-card h3 { color: var(--green); font-size: 1.22rem; margin: 18px 0 8px; }
+    .course-card p { color: var(--muted); font-size: .96rem; margin-bottom: 21px; }
+    .text-link { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; color: var(--green-3); font-weight: 700; }
+    .text-link i { transition: transform .2s; }
+    .text-link:hover i { transform: translateX(5px); }
+
+    /* Features */
+    .features-section { background: #edf4ef; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .feature-card { padding: 30px 25px; text-align: center; border-radius: var(--radius); background: white; border: 1px solid #e3ece5; }
+    .feature-icon { width: 66px; height: 66px; margin: 0 auto 17px; display: grid; place-items: center; border-radius: 20px; background: var(--green); color: var(--yellow); font-size: 1.5rem; }
+    .feature-card h3 { color: var(--green); font-size: 1.15rem; margin-bottom: 8px; }
+    .feature-card p { color: var(--muted); font-size: .95rem; }
+
+    /* Contact */
+    .contact-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items: stretch; }
+    .contact-info { padding: 35px; border-radius: var(--radius); color: white; background: linear-gradient(145deg, var(--green), #0c6043); }
+    .contact-info h2 { font-size: 1.8rem; margin-bottom: 10px; }
+    .contact-info > p { color: #d0e2d8; margin-bottom: 28px; }
+    .contact-item { display: flex; gap: 14px; align-items: flex-start; margin: 20px 0; }
+    .contact-item i { width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center; border-radius: 12px; color: var(--green); background: var(--yellow); }
+    .contact-item strong { display: block; margin-bottom: 2px; color: #ffe58a; }
+    .contact-item span, .contact-item a { color: #edf6f0; overflow-wrap: anywhere; }
+    .contact-form { padding: 35px; border: 1px solid var(--line); border-radius: var(--radius); background: white; box-shadow: var(--shadow); }
+    .contact-form h3 { color: var(--green); font-size: 1.45rem; margin-bottom: 20px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; margin-bottom: 7px; color: #33463b; font-weight: 600; }
+    .form-group input, .form-group textarea { width: 100%; padding: 13px 15px; border: 1px solid #dce6de; border-radius: 11px; outline: none; background: #fbfdfb; color: var(--ink); transition: border .2s, box-shadow .2s; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--green-3); box-shadow: 0 0 0 3px rgba(18,104,74,.1); }
+    .form-group textarea { min-height: 125px; resize: vertical; }
+    .submit-btn { width: 100%; color: var(--green); background: var(--yellow); }
+    .form-message { min-height: 25px; margin-top: 10px; color: var(--green-3); font-weight: 600; font-size: .92rem; }
+
+    /* Footer */
+    footer { padding: 28px 0; color: #d4e2da; background: #04271d; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-brand { color: white; font-weight: 700; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 12px; color: var(--green); background: var(--yellow); transition: transform .2s, background .2s; }
+    .footer-social a:hover { transform: translateY(-3px); background: white; }
+    .copyright { font-size: .9rem; color: #aebfb5; }
+
+    /* Responsive navigation and layout */
+    @media (max-width: 900px) {
+      .nav-links { gap: 18px; }
+      .hero-grid { gap: 25px; }
+      .courses-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px) {
+      .container { width: min(100% - 32px, 560px); }
+      .navbar { min-height: 70px; }
+      .brand { font-size: 1.02rem; }
+      .brand-mark { width: 39px; height: 39px; }
+      .menu-toggle { display: inline-grid; place-items: center; margin-left: auto; }
+      .login-btn { padding: 10px 13px; font-size: .9rem; }
+      .nav-links {
+        position: absolute; top: 70px; left: 0; right: 0; padding: 14px 22px 20px;
+        display: none; flex-direction: column; align-items: stretch; gap: 0;
+        background: white; border-bottom: 1px solid var(--line); box-shadow: 0 15px 20px rgba(7,59,43,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; padding: 11px 5px; }
+      .hero { padding: 68px 0 72px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: clamp(2.1rem, 9vw, 3.1rem); }
+      .physics-art { min-height: 280px; }
+      .orbit-card { width: min(82%, 330px); }
+      .atom { transform: scale(.82); }
+      section { padding: 65px 0; }
+      .features-grid, .contact-wrap { grid-template-columns: 1fr; }
+      .section-heading { margin-bottom: 30px; }
+    }
+    @media (max-width: 480px) {
+      .container { width: calc(100% - 28px); }
+      .brand { font-size: .91rem; gap: 8px; }
+      .brand-mark { width: 35px; height: 35px; border-radius: 11px; }
+      .brand-mark svg { width: 23px; height: 23px; }
+      .login-btn { padding: 9px 10px; font-size: .82rem; }
+      .menu-toggle { width: 38px; height: 38px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn { width: 100%; }
+      .courses-grid { grid-template-columns: 1fr; }
+      .course-card { min-height: 225px; }
+      .contact-info, .contact-form { padding: 25px 21px; }
+      .footer-inner { justify-content: center; text-align: center; }
+      .copyright { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="#home" aria-label="Rony Physics Solution হোম">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none">
+            <ellipse cx="24" cy="24" rx="20" ry="8" stroke="currentColor" stroke-width="2.2"/>
+            <ellipse cx="24" cy="24" rx="20" ry="8" stroke="currentColor" stroke-width="2.2" transform="rotate(60 24 24)"/>
+            <ellipse cx="24" cy="24" rx="20" ry="8" stroke="currentColor" stroke-width="2.2" transform="rotate(120 24 24)"/>
+            <circle cx="24" cy="24" r="3.5" fill="#fff"/>
+          </svg>
+        </span>
+        <span>Rony Physics Solution</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="মেনু খুলুন" aria-expanded="false" aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a class="active" href="#home">হোম</a></li>
+        <li><a href="#courses">কোর্সসমূহ</a></li>
+        <li><a href="#free-mcq">ফ্রি MCQ</a></li>
+        <li><a href="#contact">যোগাযোগ</a></li>
+      </ul>
+      <a class="login-btn" href="#login" id="loginLink"><i class="fa-regular fa-user"></i> লগইন করুন</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-atom"></i> Physics শেখার স্মার্ট ঠিকানা</span>
+          <h1>যেখানে পদার্থবিজ্ঞান মিলে যায় <span>আপনার কৌতূহলের সাথে</span></h1>
+          <p class="hero-tagline">সৃজনশীল শিক্ষার টেকসই বুনন</p>
+          <p class="hero-copy">HSC &amp; SSC পদার্থবিজ্ঞানের জন্য অধ্যায়ভিত্তিক প্রস্তুতি, গুরুত্ত্বপূর্ণ MCQ এবং এডমিশন গাইডলাইন।</p>
+          <div class="hero-actions">
+            <a class="btn btn-yellow" href="#free-mcq"><i class="fa-solid fa-clipboard-check"></i> ফ্রি MCQ পরীক্ষা দাও</a>
+            <a class="btn btn-outline" href="#courses">কোর্স দেখুন <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <p class="hero-note"><i class="fa-solid fa-circle-check"></i> ধারণা পরিষ্কার করে আত্মবিশ্বাসের সঙ্গে পরীক্ষার প্রস্তুতি</p>
+        </div>
+        <div class="physics-art" aria-label="পদার্থবিজ্ঞানের পরমাণুর অলংকারমূলক চিত্র">
+          <div class="orbit-card">
+            <div class="atom">
+              <span class="orbit one"></span><span class="orbit two"></span><span class="orbit three"></span>
+              <span class="nucleus"></span><span class="electron e1"></span><span class="electron e2"></span>
+            </div>
+            <span class="art-label"><i class="fa-solid fa-lightbulb"></i> Think • Learn • Solve</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">আমাদের কোর্স</span>
+          <h2>আপনার লক্ষ্যের জন্য সঠিক প্রস্তুতি</h2>
+          <p>ভিত্তি মজবুত করা থেকে শুরু করে পরীক্ষার প্রস্তুতি—প্রতিটি ধাপে থাকুন পরিকল্পিত শেখার সঙ্গে।</p>
+        </div>
+        <div class="courses-grid">
+          <article class="course-card">
+            <div class="course-icon"><i class="fa-solid fa-book-open"></i></div>
+            <h3>HSC পদার্থবিজ্ঞান প্রথম পত্র</h3>
+            <p>প্রথম পত্রের অধ্যায়ভিত্তিক আলোচনা, সূত্রের ব্যবহার ও অনুশীলন।</p>
+            <a class="text-link course-detail" href="#contact" data-course="HSC পদার্থবিজ্ঞান প্রথম পত্র">বিস্তারিত দেখুন <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+          <article class="course-card">
+            <div class="course-icon"><i class="fa-solid fa-atom"></i></div>
+            <h3>HSC পদার্থবিজ্ঞান দ্বিতীয় পত্র</h3>
+            <p>দ্বিতীয় পত্রের গুরুত্বপূর্ণ ধারণা, গাণিতিক সমস্যা ও পরীক্ষাভিত্তিক প্রস্তুতি।</p>
+            <a class="text-link course-detail" href="#contact" data-course="HSC পদার্থবিজ্ঞান দ্বিতীয় পত্র">বিস্তারিত দেখুন <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+          <article class="course-card">
+            <div class="course-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h3>SSC পদার্থবিজ্ঞান</h3>
+            <p>মৌলিক ধারণা, অধ্যায়ভিত্তিক অনুশীলন এবং বোর্ড পরীক্ষার প্রস্তুতি।</p>
+            <a class="text-link course-detail" href="#contact" data-course="SSC পদার্থবিজ্ঞান">বিস্তারিত দেখুন <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+          <article class="course-card">
+            <div class="course-icon"><i class="fa-solid fa-bullseye"></i></div>
+            <h3>HSC এডমিশন প্রোগ্রাম</h3>
+            <p>ভর্তি পরীক্ষার উপযোগী ধারণা, বাছাইকৃত MCQ ও নিয়মিত অনুশীলন।</p>
+            <a class="text-link course-detail" href="#contact" data-course="HSC এডমিশন প্রোগ্রাম">বিস্তারিত দেখুন <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+          <article class="course-card">
+            <div class="course-icon"><i class="fa-solid fa-user-graduate"></i></div>
+            <h3>Academic Private Program</h3>
+            <p>শিক্ষার্থীর প্রয়োজন অনুযায়ী পরিকল্পিত একাডেমিক সহায়তা ও অনুশীলন।</p>
+            <a class="text-link course-detail" href="#contact" data-course="Academic Private Program">বিস্তারিত দেখুন <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-section" id="free-mcq">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">কেন Rony Physics Solution</span>
+          <h2>মুখস্থ নয়, বুঝে শেখাই আমাদের লক্ষ্য</h2>
+          <p>সহজ ব্যাখ্যা ও ধারাবাহিক অনুশীলনের মাধ্যমে পদার্থবিজ্ঞানকে করে তুলুন আরও বোধগম্য।</p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+            <h3>কনসেপ্ট বুঝে পদার্থবিজ্ঞান শেখা</h3>
+            <p>সূত্র মুখস্থের পাশাপাশি প্রতিটি বিষয়ের মূল ধারণা ও প্রয়োগ বোঝার ওপর গুরুত্ব।</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-list-check"></i></div>
+            <h3>অধ্যায়ভিত্তিক প্রস্তুতি</h3>
+            <p>সুশৃঙ্খল অধ্যায়ভিত্তিক পাঠ ও অনুশীলনের মাধ্যমে প্রস্তুতিকে এগিয়ে নেওয়া।</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-circle-question"></i></div>
+            <h3>গুরুত্ত্বপূর্ণ MCQ ও নিয়মিত অনুশীলন</h3>
+            <p>গুরুত্বপূর্ণ বহুনির্বাচনি প্রশ্ন চর্চা করে নিজের প্রস্তুতি যাচাই করুন।</p>
+          </article>
+        </div>
+        <div style="text-align:center; margin-top:30px;">
+          <a class="btn btn-yellow" href="#contact"><i class="fa-solid fa-pen-to-square"></i> ফ্রি MCQ পরীক্ষার তথ্য নিন</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">যোগাযোগ</span>
+          <h2>আপনার প্রশ্ন বা ভর্তি-সংক্রান্ত তথ্য জানতে যোগাযোগ করুন</h2>
+          <p>কোর্স সম্পর্কে জানতে অথবা বার্তা পাঠাতে নিচের তথ্য ব্যবহার করুন।</p>
+        </div>
+        <div class="contact-wrap">
+          <div class="contact-info">
+            <h2>যোগাযোগের তথ্য</h2>
+            <p>Rony Physics Solution-এ আপনাকে স্বাগতম। বিস্তারিত জানতে সরাসরি যোগাযোগ করুন।</p>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <div><strong>ঠিকানা</strong><span>বুলু ভিলা (দ্বিতীয় তলা), গ্রেটার রোড মসজিদ সংলগ্ন, কাদিরগঞ্জ, রাজশাহী।</span></div>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <div><strong>মোবাইল</strong><a href="tel:+8801777032970">০১৭৭৭০৩২৯৭০</a></div>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <div><strong>ইমেইল</strong><a href="mailto:rony.apee47@gmail.com">rony.apee47@gmail.com</a></div>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <h3>আমাদের বার্তা পাঠান</h3>
+            <div class="form-group">
+              <label for="name">আপনার নাম</label>
+              <input type="text" id="name" name="name" placeholder="নাম লিখুন" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">মোবাইল নম্বর</label>
+              <input type="tel" id="phone" name="phone" placeholder="মোবাইল নম্বর লিখুন" required>
+            </div>
+            <div class="form-group">
+              <label for="message">আপনার বার্তা</label>
+              <textarea id="message" name="message" placeholder="আপনার বার্তা লিখুন..." required></textarea>
+            </div>
+            <button class="btn submit-btn" type="submit">বার্তা পাঠান <i class="fa-solid fa-paper-plane"></i></button>
+            <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">Rony Physics Solution</div>
+      <p class="copyright">© 2024 Rony Physics Solution. All rights reserved.</p>
+      <div class="footer-social" aria-label="সামাজিক যোগাযোগমাধ্যম">
+        <!-- Replace # with the academy's real social profile URLs -->
+        <a href="#" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="YouTube" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="mailto:rony.apee47@gmail.com" aria-label="Email" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.innerHTML = isOpen
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    // Close the mobile menu after selecting a section
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      });
+    });
+
+    // Course detail links take the selected course name into the contact message
+    document.querySelectorAll('.course-detail').forEach(link => {
+      link.addEventListener('click', () => {
+        const courseName = link.dataset.course;
+        document.getElementById('message').value = 'আমি "' + courseName + '" কোর্স সম্পর্কে বিস্তারিত জানতে চাই।';
+      });
+    });
+
+    // Front-end contact form: opens the visitor's email app with a prepared message.
+    // For direct online submissions, connect this form to a backend or a form service.
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !phone || !message) {
+        formMessage.textContent = 'অনুগ্রহ করে সব তথ্য পূরণ করুন।';
+        return;
+      }
+
+      const subject = encodeURIComponent('Website inquiry — Rony Physics Solution');
+      const body = encodeURIComponent(
+        'নাম: ' + name + '\nমোবাইল: ' + phone + '\n\nবার্তা:\n' + message
+      );
+      formMessage.textContent = 'আপনার ইমেইল অ্যাপ খুলছে—সেখান থেকে বার্তাটি পাঠিয়ে দিন।';
+      window.location.href = 'mailto:rony.apee47@gmail.com?subject=' + subject + '&body=' + body;
+    });
+
+    // Demo login notice — replace with a real login page when authentication is available.
+    document.getElementById('loginLink').addEventListener('click', (event) => {
+      event.preventDefault();
+      alert('লগইন সুবিধা চালু করতে আপনার ওয়েবসাইটে একটি login page বা authentication system যুক্ত করুন।');
+    });
+  </script>
+</body>
+</html>
